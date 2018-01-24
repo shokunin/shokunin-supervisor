@@ -1,0 +1,18 @@
+{
+  "name": "shokunin-supervisor",
+  "version": "0.1.0",
+  "author": "shokunin",
+  "summary": "setup supervisor",
+  "license": "Apache-2.0",
+  "source": "https://github.com/shokunin/shokunin-supervisor",
+  "project_page": "https://github.com/shokunin/shokunin-supervisor",
+  "issues_url": "https://github.com/shokunin/shokunin-supervisor/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 1.0.0"
+    }
+  ],
+  "data_provider": null
+}
+
