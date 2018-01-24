@@ -51,6 +51,13 @@ class supervisor {
     ensure =>  installed,
   }
 
+  file { "${path_config}/supervisor.d":
+    ensure => directory,
+    owner  => root,
+    group  => root,
+    mode   => '0755',
+  }
+
   package { 'supervisor':
     ensure   => '3.1.3',
     provider =>  'pip',
