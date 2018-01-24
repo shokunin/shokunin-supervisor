@@ -82,10 +82,26 @@ class supervisor {
     notify  => Service['supervisord'],
   }
 
+  file { '/lib/systemd/system/supervisord.service':
+    ensure => file,
+    source => 'supervisord.service',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    notify =>  Exec['systemctl_reload'],
+  }
+
+  exec { 'systemctl_reload':
+    command     =>  '/bin/systemctl daemon-reload',
+    refreshonly => true,
+  }
+
   service { 'supervisord':
     ensure  => running,
     enable  => true,
-    require =>  File["${path_config}/supervisord.conf"],
+    require =>  [ Exec['systemctl_reload'],
+                  File["${path_config}/supervisord.conf"],
+                  ],
   }
 
 }
