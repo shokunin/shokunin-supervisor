@@ -84,7 +84,7 @@ class supervisor {
 
   file { '/lib/systemd/system/supervisord.service':
     ensure => file,
-    source => 'supervisord.service',
+    source => 'puppet:///modules/supervisor/supervisord.service',
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
